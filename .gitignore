@@ -1,25 +1,4 @@
-# Dependencies
 node_modules/
-package-lock.json
-
-# Environment variables (NEVER commit these!)
 .env
-
-# AWS credentials
-.aws/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Logs
 *.log
-npm-debug.log*
-
-# Test files
-test-files/
-uploads/
