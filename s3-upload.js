@@ -23,14 +23,14 @@ if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
   console.error('Please make sure you have a .env file with:');
   console.error('AWS_ACCESS_KEY_ID=your_access_key');
   console.error('AWS_SECRET_ACCESS_KEY=your_secret_key');
-  console.error('AWS_REGION=eu-north-1');
-  console.error('S3_BUCKET_NAME=johnk-files-2026');
+  console.error('AWS_REGION=');
+  console.error('S3_BUCKET_NAME=');
   process.exit(1);
 }
 
 // Configure AWS S3 Client
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION || 'eu-north-1',
+  region: process.env.AWS_REGION || '',
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -38,7 +38,7 @@ const s3Client = new S3Client({
 });
 
 // Your S3 bucket name
-const BUCKET_NAME = process.env.S3_BUCKET_NAME || 'johnk-files-2026';
+const BUCKET_NAME = process.env.S3_BUCKET_NAME || '';
 
 /**
  * Upload a single file to S3
@@ -139,8 +139,8 @@ async function main() {
     // Example 1: Upload a single file
     // Make sure you have a file called 'test.txt' in your folder first!
     await uploadFileToS3(
-      './kill localhost.txt', // Local file path
-      'uploads/kill localhost.txt' // S3 key (destination path)
+      './yourtxtfilename.txt', // Local file path
+      'uploads/yourtxtfilename.txt' // S3 key (destination path)
     );
     
     // Example 2: Upload multiple files (uncomment to use)
